@@ -28,11 +28,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="label1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="164" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="166" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,10 +67,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jButton2" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                          <Component id="jButtonConnect" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButtonDisconnect" min="-2" pref="101" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButtonSend" pref="270" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane2" max="32767" attributes="0"/>
                   </Group>
@@ -88,8 +89,9 @@
                           <Component id="jScrollPane2" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonDisconnect" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonConnect" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonSend" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -106,25 +108,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabelDeviceName" max="32767" attributes="0"/>
-                                      <Component id="jTextField1" max="32767" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabelDeviceName" max="32767" attributes="0"/>
+                          <Component id="jTextFieldCommand" max="32767" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -136,19 +127,12 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldCommand" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="137" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -159,7 +143,7 @@
                 <Property name="text" type="java.lang.String" value="Nenhum dispositivo selecionado"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jTextFieldCommand">
               <Properties>
                 <Property name="text" type="java.lang.String" value="G1"/>
               </Properties>
@@ -179,34 +163,16 @@
                 <Property name="text" type="java.lang.String" value="Frequ&#xea;ncia (em segundos)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="http://fisioneng.local:3000"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="API Key"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Servidor"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButtonDisconnect">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Iniciar"/>
+            <Property name="text" type="java.lang.String" value="Desconectar"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Parar"/>
-          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonDisconnectMouseClicked"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
           <AuxValues>
@@ -215,7 +181,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="jTextAreaLog">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
@@ -225,6 +191,24 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="jButtonConnect">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Conectar"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonConnectMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonSend">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Enviar"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSendMouseClicked"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="java.awt.Label" name="label1">

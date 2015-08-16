@@ -6,9 +6,12 @@
 package fisioeng.collector.serial;
 
 import gnu.io.CommPortIdentifier;
+import gnu.io.NoSuchPortException;
+import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
+import gnu.io.UnsupportedCommOperationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -19,161 +22,119 @@ import java.io.OutputStream;
  * @author joseronierison
  */
 public class XBee  implements Runnable, SerialPortEventListener {
+    
+    /**
+     * Data received from serial
+     * 
+     * @String
+     */
+    protected String data;
+    
+    private CommPortIdentifier portIdentifier;
+    
+    private SerialPort port;
+    
+    protected String portName;
+    
+    private OutputStream output;
+    private InputStream input;
+    
+    private final int timeout;
+    private final int baudrate;
+    
     public String Dadoslidos;
     public int nodeBytes;
-    private int baudrate;
-    private int timeout;
-    private CommPortIdentifier cp;
-    private SerialPort porta;
-    private OutputStream saida;
-    private InputStream entrada;
-    private Thread threadLeitura;
-    private boolean IDPortaOK;
-    private boolean PortaOK;
-    private boolean Leitura;
-    private boolean Escrita;
-    private String Porta;
-    protected String dado;
-
-    private byte[] readBuffer = new byte[400];
+        
     
-    public String getDado() {
-        return dado;
-    }
+    private InputStream entrada;
+    
+    private Thread threadLeitura;
 
-    public void setDado(String peso) {
-        this.dado = peso;
-    }
+    private final byte[] readBuffer;
 
-    public void setPorta(String p){
-        this.Porta = p;
+    public XBee() {
+        this.timeout = 1000;
+        this.baudrate = 9600;
+        this.readBuffer = new byte[400];
     }
-
-    public boolean getEscrita(){
-        return Escrita;
-    }
-
-    public boolean getLeitura(){
-        return Leitura;
-    }
-
-    public void HabilitarEscrita() {
-        Escrita = true;
-        Leitura = false;
-    }
-
-    public void HabilitarLeitura() {
-        Escrita = false;
-        Leitura = true;
-
-    }
-    //Obtem o Id da porta
-    public void ObterIdDaPorta() {
+    
+    
+    
+    /**
+     * Open the serial port
+     * 
+     * @throws java.lang.Exception
+     */
+    public void connect() throws Exception {
         try {
-            cp = CommPortIdentifier.getPortIdentifier(Porta);
-            if (cp == null) {
-                System.out.println("Erro na porta");
-                IDPortaOK = false;
-                System.exit(1);
-            }
-            IDPortaOK = true;
-        } catch (Exception e) {
-            System.out.println("Erro obtendo ID da porta:" + e);
-            IDPortaOK = false;
-            System.exit(1);
+            portIdentifier = CommPortIdentifier.getPortIdentifier(portName);
+            
+            port = (SerialPort) portIdentifier.open(this.getClass().getName(), timeout);
+            
+            port.setSerialPortParams(baudrate, port.DATABITS_8, SerialPort.STOPBITS_1, port.PARITY_NONE);         
+            port.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
+                        
+            output = port.getOutputStream();
+            input = port.getInputStream();
+            
+            port.addEventListener(this);
+            port.notifyOnDataAvailable(true);
+            
+        } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException e) {
+            throw new Exception(e.getMessage());
         }
     }
-    //Abre cominicaçao da porta escolhida
-    public void AbrirPorta() {
+    
+    /**
+     * Send message to serial
+     * 
+     * @param msg 
+     *  
+     * @throws java.lang.Exception 
+     */
+    public void sendMensage(String msg) throws Exception {
+        System.out.println("trying to send message ..");
         try {
-            ObterIdDaPorta();
-            porta = (SerialPort) cp.open("SerialComLeitura", 10);
-            PortaOK = true;
+            output.write(msg.getBytes());
 
-            //configurar parâmetros
-            porta.setSerialPortParams(9600,
-                    porta.DATABITS_8,
-                    porta.STOPBITS_1,
-                    porta.PARITY_NONE);
-            porta.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
-        } catch (Exception e) {
-            PortaOK = false;
-            System.out.println("Erro abrindo comunicação: " + e);
-            System.exit(1);
-        }
+            Thread.sleep(1000);
+            
+            System.out.println("1");
+            threadLeitura = new Thread(this);
+            System.out.println("2");
+            threadLeitura.start();
+            System.out.println("3");
+            run();
+            System.out.println("4");
+            System.out.println("DATA ==> " + readSerial());
+        } catch (IOException | InterruptedException e) {
+            throw e;
+        }     
     }
 
-    public void LerDados() {
-        if (Escrita == false) {
-            try {
-                entrada = porta.getInputStream();
-            } catch (Exception e) {
-                System.out.println("Erro de stream: " + e);
-                System.exit(1);
-            }
-            try {
-                porta.addEventListener(this);
-            } catch (Exception e) {
-                System.out.println("Erro de listener: " + e);
-                System.exit(1);
-            }
-            porta.notifyOnDataAvailable(true);
-            try {
-                threadLeitura = new Thread(this);
-                threadLeitura.start();
-                run();
-            } catch (Exception e) {
-                System.out.println("Erro de Thred: " + e);
-            }
-        }
-    }
-
-    public void EnviarUmaString(String msg) {
-        if (Escrita == true) {
-            try {
-                saida = porta.getOutputStream();
-                System.out.println("FLUXO OK!");
-            } catch (Exception e) {
-                System.out.println("Erro.STATUS: " + e);
-            }
-            try {
-                System.out.println("Enviando um byte para " + Porta);
-                System.out.println("Enviando : " + msg);
-                saida.write(msg.getBytes());
-                Thread.sleep(100);
-                //saida.flush();
-            } catch (Exception e) {
-                System.out.println("Houve um erro durante o envio. ");
-                System.out.println("STATUS: " + e);
-                System.exit(1);
-            }
-        } else {
-            System.exit(1);
-        }
-    }
-
-    public String readSerial() {
+    @Override
+    public void run() {
         try {
-            int availableBytes = entrada.available();
+            Thread.sleep(1000);
+        }catch (Exception e) {
+            
+        }
+    }
+    
+    private String readSerial() {
+        try {
+            System.out.println("r1");
+            int availableBytes = input.available();
+            System.out.println(availableBytes);
             if (availableBytes > 0) {
-                // Read the serial port
-                entrada.read(readBuffer, 0, availableBytes);
-
-                // Print it out
+                input.read(readBuffer, 0, availableBytes);
+                System.out.println("r21");
                 return new String(readBuffer, 0, availableBytes);
             }
         } catch (IOException e) {
-            System.out.println("ERROR!!!!!");
+            System.out.println("ERROR!!!!! " + e.getMessage());
         }
         return "no data";
-    }
-
-    public void run() {
-        try {
-            Thread.sleep(10000);
-            }catch (Exception e) {
-            System.out.println("Erro de Thred: " + e);
-        }
     }
 
     //Este método monitora e obtem os dados da porta
@@ -210,35 +171,41 @@ public class XBee  implements Runnable, SerialPortEventListener {
                         System.out.println("Erro de leitura serial: " + ioe);
                     }
                 }
-                setDado(new String(bufferLeitura));
-                recebeuDado();
+                setData(new String(bufferLeitura));
                 break;
         }
     }
-    //Método para conferir se recebeu dados
-    public void recebeuDado(){
-        String dado = getDado();
-        if(dado != null){
-            System.out.print(getDado()+"\n");
-        }
-    }
 
-    //Metodo para fechar a porta COMq
-    public void FecharCom() {
+    /**
+     * 
+     * @throws Exception
+     */
+    public void disconnect() throws Exception {
         try {
-            porta.close();
-            System.out.println("Porta "+this.Porta+" fechada");
+            port.close();
         } catch (Exception e) {
-            System.out.println("Erro fechando porta: " + e);
-            System.exit(0);
+            throw e;
         }
     }
 
-    public String obterPorta() {
-        return Porta;
+    public String getPortName() {
+        return portName;
     }
 
-    public int obterBaudrate() {
+    public int getBaudrate() {
         return baudrate;
+    }
+    
+    public String getData() {
+        return data;
+    }
+
+    public XBee setData(String data) {
+        this.data = data;
+        return this;
+    }
+    
+    public void setPortName(String p){
+        this.portName = p;
     }
 }

@@ -6,8 +6,8 @@
 package fisioeng.collector.home;
 
 import fisioeng.collector.serial.Discover;
+import fisioeng.collector.serial.XBee;
 import java.util.List;
-import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -16,13 +16,15 @@ import javax.swing.event.ListSelectionListener;
  * @author joseronierison
  */
 public class Home extends javax.swing.JFrame {
-
+    protected XBee xbee;
+    
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
         listDevices();
+        xbee = new XBee();
     }
 
     private void listDevices () {        
@@ -42,7 +44,10 @@ public class Home extends javax.swing.JFrame {
             @Override
             public void valueChanged(ListSelectionEvent evt) {
               if (!evt.getValueIsAdjusting()) {
-                jLabelDeviceName.setText(jList1.getSelectedValue().toString());
+                String portName = jList1.getSelectedValue().toString();
+                jLabelDeviceName.setText(portName);
+                jButtonConnect.setEnabled(true);
+                xbee.setPortName(portName);
               }
             }
           });
@@ -59,18 +64,15 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelDeviceName = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldCommand = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonDisconnect = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaLog = new javax.swing.JTextArea();
+        jButtonConnect = new javax.swing.JButton();
+        jButtonSend = new javax.swing.JButton();
         label1 = new java.awt.Label();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
@@ -80,7 +82,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabelDeviceName.setText("Nenhum dispositivo selecionado");
 
-        jTextField1.setText("G1");
+        jTextFieldCommand.setText("G1");
 
         jLabel2.setText("Comando");
 
@@ -88,33 +90,19 @@ public class Home extends javax.swing.JFrame {
 
         jLabel3.setText("Frequência (em segundos)");
 
-        jTextField3.setText("http://fisioneng.local:3000");
-
-        jLabel4.setText("API Key");
-
-        jLabel5.setText("Servidor");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelDeviceName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField3))
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelDeviceName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldCommand)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,30 +112,43 @@ public class Home extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldCommand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(3, 3, 3)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Iniciar");
+        jButtonDisconnect.setText("Desconectar");
+        jButtonDisconnect.setEnabled(false);
+        jButtonDisconnect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonDisconnectMouseClicked(evt);
+            }
+        });
 
-        jButton2.setText("Parar");
+        jTextAreaLog.setEditable(false);
+        jTextAreaLog.setColumns(20);
+        jTextAreaLog.setRows(5);
+        jTextAreaLog.setText("os logs aparecerão aqui ..");
+        jScrollPane2.setViewportView(jTextAreaLog);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("os logs aparecerão aqui ..");
-        jScrollPane2.setViewportView(jTextArea1);
+        jButtonConnect.setText("Conectar");
+        jButtonConnect.setEnabled(false);
+        jButtonConnect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonConnectMouseClicked(evt);
+            }
+        });
+
+        jButtonSend.setText("Enviar");
+        jButtonSend.setEnabled(false);
+        jButtonSend.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSendMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,10 +160,11 @@ public class Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 2, Short.MAX_VALUE))
+                        .addComponent(jButtonConnect)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDisconnect, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSend, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
         );
@@ -176,8 +178,9 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jScrollPane2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))))
+                            .addComponent(jButtonDisconnect)
+                            .addComponent(jButtonConnect)
+                            .addComponent(jButtonSend))))
                 .addContainerGap())
         );
 
@@ -198,10 +201,10 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,6 +223,44 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonConnectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConnectMouseClicked
+        try {
+           xbee.connect();
+        } catch (Exception e) {
+            jTextAreaLog.setText(e.getMessage());
+        }
+        
+        jButtonDisconnect.setEnabled(true);
+        jButtonSend.setEnabled(true);
+        jButtonConnect.setEnabled(false);
+        jTextAreaLog.setText("Conectado ao dispositivo: '" + xbee.getPortName() + "'");
+    }//GEN-LAST:event_jButtonConnectMouseClicked
+
+    private void jButtonDisconnectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDisconnectMouseClicked
+        try {
+           xbee.disconnect();
+        } catch (Exception e) {
+            jTextAreaLog.append("\nError: " + e.getMessage());
+        }
+        
+        jButtonDisconnect.setEnabled(false);
+        jButtonSend.setEnabled(false);
+        jButtonConnect.setEnabled(true);
+        jTextAreaLog.append("\nDesconectando de '" + xbee.getPortName() + "'");
+    }//GEN-LAST:event_jButtonDisconnectMouseClicked
+
+    private void jButtonSendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSendMouseClicked
+        String command = jTextFieldCommand.getText();
+        try {
+            xbee.sendMensage(command);
+        } catch (Exception e) {
+            jTextAreaLog.append("\nError: " + e.getMessage());
+        }
+        
+        jTextAreaLog.append("\n Comando '" + command + "' foi enviado para '" + xbee.getPortName() + "'");        
+    }//GEN-LAST:event_jButtonSendMouseClicked
+
+    
     /**
      * @param args the command line arguments
      */
@@ -228,23 +269,20 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonConnect;
+    private javax.swing.JButton jButtonDisconnect;
+    private javax.swing.JButton jButtonSend;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelDeviceName;
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextAreaLog;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextFieldCommand;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
