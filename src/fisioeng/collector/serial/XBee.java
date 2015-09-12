@@ -44,9 +44,6 @@ public class XBee  implements Runnable, SerialPortEventListener {
     
     public String Dadoslidos;
     public int nodeBytes;
-        
-    
-    private InputStream entrada;
     
     private Thread threadLeitura;
 
@@ -95,18 +92,15 @@ public class XBee  implements Runnable, SerialPortEventListener {
     public void sendMensage(String msg) throws Exception {
         System.out.println("trying to send message ..");
         try {
+            System.out.println();
             output.write(msg.getBytes());
+            output.write(0xd);
 
             Thread.sleep(1000);
             
-            System.out.println("1");
             threadLeitura = new Thread(this);
-            System.out.println("2");
             threadLeitura.start();
-            System.out.println("3");
             run();
-            System.out.println("4");
-            System.out.println("DATA ==> " + readSerial());
         } catch (IOException | InterruptedException e) {
             throw e;
         }     
@@ -123,12 +117,10 @@ public class XBee  implements Runnable, SerialPortEventListener {
     
     private String readSerial() {
         try {
-            System.out.println("r1");
             int availableBytes = input.available();
-            System.out.println(availableBytes);
             if (availableBytes > 0) {
                 input.read(readBuffer, 0, availableBytes);
-                System.out.println("r21");
+                
                 return new String(readBuffer, 0, availableBytes);
             }
         } catch (IOException e) {
@@ -140,8 +132,7 @@ public class XBee  implements Runnable, SerialPortEventListener {
     //Este método monitora e obtem os dados da porta
     @Override
     public void serialEvent(SerialPortEvent ev) {
-        System.out.println("entering in a event...");
-        StringBuffer bufferLeitura = new StringBuffer();
+        StringBuilder responseBuffer = new StringBuilder();
         int novoDado = 0;
         switch (ev.getEventType()) {
             case SerialPortEvent.BI:
@@ -153,25 +144,30 @@ public class XBee  implements Runnable, SerialPortEventListener {
             case SerialPortEvent.DSR:
             case SerialPortEvent.RI:
             case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
-                break;
+                System.out.println("new data");
+            break;
             case SerialPortEvent.DATA_AVAILABLE:
-        //Algortimo de leitura
+            System.out.println(1);
                 while (novoDado != -1) {
+                    System.out.println(2);
                     try {
-                        novoDado = entrada.read();
+                        System.out.println(3);
+                        System.out.println("aasdd " + input.available());
+                        novoDado = input.read();
+                        
                         if (novoDado == -1) {
                             break;
                         }
                         if ('\r' == (char) novoDado) {
-                            bufferLeitura.append('\n');
+                            responseBuffer.append('\n');
                         } else {
-                            bufferLeitura.append((char) novoDado);
+                            responseBuffer.append((char) novoDado);
                         }
                     } catch (IOException ioe) {
-                        System.out.println("Erro de leitura serial: " + ioe);
+                        System.out.println("Erro de leitura serial: " + ioe.getMessage());
                     }
                 }
-                setData(new String(bufferLeitura));
+                setData(new String(responseBuffer));
                 break;
         }
     }
