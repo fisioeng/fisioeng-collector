@@ -5,10 +5,12 @@
  */
 package fisioeng.collector.serial;
 
+import gnu.io.CommPortIdentifier;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -24,35 +26,13 @@ public class Discover {
      * @return List<String> 
      */
     public List<String> getAvailablePorts() {        
-        List<String> list = new ArrayList<String>();        
-        String res = "";
-        BufferedReader br;
-        String cmd;
-        Process proc;
+        List<String> list = new ArrayList<String>();    
 
-        try {
-            /*search for ports where Prolific PL2303 cable is attached*/
-            cmd = "ls /dev/ttyUSB*";
-            proc = Runtime.getRuntime().exec(new String[]{"bash","-c",cmd});
-            
-            /* parse the command line results*/
-            br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            do {
-                
-                try {
-                    res = br.readLine();
-                    if (res == null)
-                        break;
-                    
-                    list.add(res);
-                } catch(Exception e) {
-                    e.printStackTrace();
-                }
-            } while (!res.equals("null"));
-            br.close();
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        Enumeration ports = CommPortIdentifier.getPortIdentifiers();
+        while (ports.hasMoreElements()) {
+            CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
+            list.add(port.getName());
         }
 
         return list;

@@ -227,6 +227,7 @@ public class Home extends javax.swing.JFrame {
         try {
            xbee.connect();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             jTextAreaLog.setText(e.getMessage());
         }
         

@@ -66,11 +66,14 @@ public class XBee  implements Runnable, SerialPortEventListener {
         try {
             portIdentifier = CommPortIdentifier.getPortIdentifier(portName);
             
+            
             port = (SerialPort) portIdentifier.open(this.getClass().getName(), timeout);
+            System.out.println("Permission error");
             
             port.setSerialPortParams(baudrate, port.DATABITS_8, SerialPort.STOPBITS_1, port.PARITY_NONE);         
             port.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
-                        
+            
+            System.out.println(portName);
             output = port.getOutputStream();
             input = port.getInputStream();
             
@@ -78,6 +81,7 @@ public class XBee  implements Runnable, SerialPortEventListener {
             port.notifyOnDataAvailable(true);
             
         } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException e) {
+            
             throw new Exception(e.getMessage());
         }
     }
@@ -93,13 +97,15 @@ public class XBee  implements Runnable, SerialPortEventListener {
         System.out.println("trying to send message ..");
         try {
             System.out.println();
-            output.write(msg.getBytes());
+            output.write(msg.getBytes());            
             output.write(0xd);
-
+// PROBLEMA ESTÁ AQUI!
+            
             Thread.sleep(1000);
             
             threadLeitura = new Thread(this);
             threadLeitura.start();
+            
             run();
         } catch (IOException | InterruptedException e) {
             throw e;
@@ -152,7 +158,7 @@ public class XBee  implements Runnable, SerialPortEventListener {
                     System.out.println(2);
                     try {
                         System.out.println(3);
-                        System.out.println("aasdd " + input.available());
+                        
                         novoDado = input.read();
                         
                         if (novoDado == -1) {
@@ -168,7 +174,9 @@ public class XBee  implements Runnable, SerialPortEventListener {
                     }
                 }
                 setData(new String(responseBuffer));
+                System.out.println(new String(responseBuffer));
                 break;
+                
         }
     }
 
