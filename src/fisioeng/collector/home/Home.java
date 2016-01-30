@@ -16,6 +16,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         listDevices();
         xbee = new XBee();
+        log = new Logger(jTextAreaLog);
     }
 
     private void listDevices () {        
@@ -30,7 +31,6 @@ public class Home extends javax.swing.JFrame {
         }
         
         jList1.setListData(listData);
-        log = new Logger(jTextAreaLog);
         
         jList1.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -65,6 +65,17 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialogAbout = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jButtonCloseAbout = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTextFieldCommand = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -89,7 +100,111 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuHelp = new javax.swing.JMenu();
+        jMenuIAbout = new javax.swing.JMenuItem();
+
+        jDialogAbout.setTitle("Sobre Fisioeng Collector");
+        jDialogAbout.setLocation(new java.awt.Point(100, 100));
+        jDialogAbout.setMaximumSize(new java.awt.Dimension(472, 313));
+        jDialogAbout.setMinimumSize(new java.awt.Dimension(472, 313));
+        jDialogAbout.setModal(true);
+        jDialogAbout.setName("Sobre Fisioeng Collector"); // NOI18N
+        jDialogAbout.setPreferredSize(new java.awt.Dimension(472, 313));
+        jDialogAbout.setResizable(false);
+
+        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel5.setText("Fisioeng Colletor");
+
+        jLabel7.setText("Software de coleta de dados de sensores");
+
+        jLabel8.setText("v0.0.0-beta");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fisioeng/collector/imagens/univasf.png"))); // NOI18N
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fisioeng/collector/imagens/fapesb-logo.png"))); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        jLabel10.setText("Apoio");
+
+        jLabel11.setText("Licença GPL V3");
+
+        jLabel12.setText("https://github.com/fisioeng/fisioeng-collector");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)))
+        );
+
+        jButtonCloseAbout.setText("Fechar");
+        jButtonCloseAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCloseAboutActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialogAboutLayout = new javax.swing.GroupLayout(jDialogAbout.getContentPane());
+        jDialogAbout.getContentPane().setLayout(jDialogAboutLayout);
+        jDialogAboutLayout.setHorizontalGroup(
+            jDialogAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogAboutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialogAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogAboutLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonCloseAbout)))
+                .addContainerGap())
+        );
+        jDialogAboutLayout.setVerticalGroup(
+            jDialogAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogAboutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonCloseAbout))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fisioeng Collector");
@@ -288,8 +403,18 @@ public class Home extends javax.swing.JFrame {
         jMenu2.setText("Preferências");
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Ajuda");
-        jMenuBar1.add(jMenu3);
+        jMenuHelp.setText("Ajuda");
+
+        jMenuIAbout.setText("Sobre");
+        jMenuIAbout.setToolTipText("");
+        jMenuIAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIAboutActionPerformed(evt);
+            }
+        });
+        jMenuHelp.add(jMenuIAbout);
+
+        jMenuBar1.add(jMenuHelp);
 
         setJMenuBar(jMenuBar1);
 
@@ -348,6 +473,14 @@ public class Home extends javax.swing.JFrame {
         jLabelUnit.setText(jComboBoxUnit.getSelectedItem().toString());
     }//GEN-LAST:event_jComboBoxUnitItemStateChanged
 
+    private void jMenuIAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIAboutActionPerformed
+        jDialogAbout.setVisible(true);
+    }//GEN-LAST:event_jMenuIAboutActionPerformed
+
+    private void jButtonCloseAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseAboutActionPerformed
+        jDialogAbout.setVisible(false);
+    }//GEN-LAST:event_jButtonCloseAboutActionPerformed
+
     private void updateButtonsStatus() {
         jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());        
         jButtonStart.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected() && !jButtonStop.isEnabled());
@@ -360,23 +493,35 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCloseAbout;
     private javax.swing.JButton jButtonSend;
     private javax.swing.JButton jButtonStart;
     private javax.swing.JButton jButtonStop;
     private javax.swing.JCheckBox jCheckBoxSave;
     private javax.swing.JComboBox jComboBoxUnit;
+    private javax.swing.JDialog jDialogAbout;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelMeasure;
     private javax.swing.JLabel jLabelUnit;
     private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuHelp;
+    private javax.swing.JMenuItem jMenuIAbout;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelSave;
     private javax.swing.JScrollPane jScrollPane1;
