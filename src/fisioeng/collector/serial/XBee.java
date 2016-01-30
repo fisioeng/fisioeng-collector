@@ -125,10 +125,6 @@ public class XBee  implements Runnable, SerialPortEventListener {
         }
     }
 
-    /**
-     * 
-     * @throws Exception
-     */
     public void disconnect() throws Exception {
         try {
             port.close();
