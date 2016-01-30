@@ -39,22 +39,13 @@ public class XBee  implements Runnable, SerialPortEventListener {
     public int nodeBytes;
     
     private Thread threadLeitura;
-  
-    private final byte[] readBuffer;
 
     public XBee() {
         this.timeout = 1000;
         this.baudrate = 9600;
-        this.readBuffer = new byte[400];
     }
     
     
-    
-    /**
-     * Open the serial port
-     * 
-     * @throws java.lang.Exception
-     */
     public void connect() throws Exception {
         try {
             portIdentifier = CommPortIdentifier.getPortIdentifier(portName);
