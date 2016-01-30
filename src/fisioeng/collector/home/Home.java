@@ -303,11 +303,14 @@ public class Home extends javax.swing.JFrame {
         
         try {
             xbee.sendMensage(command);
+            
+            data = xbee.getData(); 
+            if(null == data){
+                throw new Exception("Os dados retornados são inválidos");
+            }
+            
             dataArray = xbee.getData().split(" ");
             
-            if(dataArray[2].isEmpty())
-                throw new Exception("Os dados retornados são inválidos");
-                
             data = dataArray[2];
             
         } catch (Exception e) {
