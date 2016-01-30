@@ -313,11 +313,13 @@ public class Home extends javax.swing.JFrame {
             
             data = dataArray[2];
             
+            jLabelMeasure.setText(data);
         } catch (Exception e) {
             log.error(e.getMessage());
+            jLabelMeasure.setText("N/A");
         }
         
-        jLabelMeasure.setText(data);
+        
         log.info("Comando '" + command + "' foi enviado para '" + xbee.getPortName() + "'.");
         log.info("Comando '" + command + "' retornou '" + data + "'");
     }//GEN-LAST:event_jButtonSendMouseClicked
