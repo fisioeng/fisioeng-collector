@@ -579,6 +579,12 @@ public class Home extends javax.swing.JFrame {
 
     private void jButtonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonStartMouseClicked
 
+        int freqTime = Integer.parseInt(jTextFieldFrequency.getText());
+        if(freqTime<=2) {
+            log.error("A frequencia deve ser maior que 2 segundos.");
+            return;
+        }
+            
         jButtonStop.setEnabled(xbee.isConnected());
         updateButtonsStatus();
         thStopFlag = false;
