@@ -17,18 +17,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 
-/**
- *
- * @author joseronierison
- */
 public class XBee  implements Runnable, SerialPortEventListener {
     
-    /**
-     * Data received from serial
-     * 
-     * @String
-     */
     protected String data;
+  
+    protected Boolean connected = false;
     
     private CommPortIdentifier portIdentifier;
     
@@ -46,7 +39,7 @@ public class XBee  implements Runnable, SerialPortEventListener {
     public int nodeBytes;
     
     private Thread threadLeitura;
-
+  
     private final byte[] readBuffer;
 
     public XBee() {
@@ -68,7 +61,6 @@ public class XBee  implements Runnable, SerialPortEventListener {
             
             
             port = (SerialPort) portIdentifier.open(this.getClass().getName(), timeout);
-            System.out.println("Permission error");
             
             port.setSerialPortParams(baudrate, port.DATABITS_8, SerialPort.STOPBITS_1, port.PARITY_NONE);         
             port.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
@@ -80,26 +72,17 @@ public class XBee  implements Runnable, SerialPortEventListener {
             port.addEventListener(this);
             port.notifyOnDataAvailable(true);
             
+            connected = true;
         } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException e) {
-            
+            System.out.println(e.getMessage());
             throw new Exception(e.getMessage());
         }
     }
     
-    /**
-     * Send message to serial
-     * 
-     * @param msg 
-     *  
-     * @throws java.lang.Exception 
-     */
     public void sendMensage(String msg) throws Exception {
-        System.out.println("trying to send message ..");
         try {
-            System.out.println();
             output.write(msg.getBytes());            
             output.write(0xd);
-// PROBLEMA ESTÁ AQUI!
             
             Thread.sleep(1000);
             
@@ -121,49 +104,20 @@ public class XBee  implements Runnable, SerialPortEventListener {
         }
     }
     
-    private String readSerial() {
-        try {
-            int availableBytes = input.available();
-            if (availableBytes > 0) {
-                input.read(readBuffer, 0, availableBytes);
-                
-                return new String(readBuffer, 0, availableBytes);
-            }
-        } catch (IOException e) {
-            System.out.println("ERROR!!!!! " + e.getMessage());
-        }
-        return "no data";
-    }
-
-    //Este método monitora e obtem os dados da porta
     @Override
     public void serialEvent(SerialPortEvent ev) {
         StringBuilder responseBuffer = new StringBuilder();
         int novoDado = 0;
         switch (ev.getEventType()) {
-            case SerialPortEvent.BI:
-            case SerialPortEvent.OE:
-            case SerialPortEvent.FE:
-            case SerialPortEvent.PE:
-            case SerialPortEvent.CD:
-            case SerialPortEvent.CTS:
-            case SerialPortEvent.DSR:
-            case SerialPortEvent.RI:
-            case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
-                System.out.println("new data");
-            break;
             case SerialPortEvent.DATA_AVAILABLE:
-            System.out.println(1);
                 while (novoDado != -1) {
-                    System.out.println(2);
                     try {
-                        System.out.println(3);
-                        
                         novoDado = input.read();
                         
                         if (novoDado == -1) {
                             break;
                         }
+
                         if ('\r' == (char) novoDado) {
                             responseBuffer.append('\n');
                         } else {
@@ -173,8 +127,8 @@ public class XBee  implements Runnable, SerialPortEventListener {
                         System.out.println("Erro de leitura serial: " + ioe.getMessage());
                     }
                 }
+                
                 setData(new String(responseBuffer));
-                System.out.println(new String(responseBuffer));
                 break;
                 
         }
@@ -187,9 +141,15 @@ public class XBee  implements Runnable, SerialPortEventListener {
     public void disconnect() throws Exception {
         try {
             port.close();
+            
+            connected = false;
         } catch (Exception e) {
             throw e;
         }
+    }
+    
+    public Boolean isConnected() {
+        return connected;
     }
 
     public String getPortName() {
