@@ -47,7 +47,7 @@ public class Home extends javax.swing.JFrame {
                     
                     xbee.connect();
                     
-                    jButtonSend.setEnabled(true);
+                    updateButtonsStatus();
                     log.info("Conectado a porta '" + portName + "' com sucesso.");
                 } catch (Exception e) {
                     log.error(e.getMessage());
@@ -329,47 +329,32 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCommandActionPerformed
 
     private void jButtonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonStartMouseClicked
-        try {
-            xbee.disconnect();
-        } catch (Exception e) {
-            //jTextAreaLog.append("\nError: " + e.getMessage());
-        }
-
-        jButtonStart.setEnabled(false);
-        jButtonSend.setEnabled(false);
-        jButtonStop.setEnabled(true);
-        //jTextAreaLog.append("\nDesconectando de '" + xbee.getPortName() + "'");
+        jButtonStop.setEnabled(xbee.isConnected());
+        updateButtonsStatus();
     }//GEN-LAST:event_jButtonStartMouseClicked
 
     private void jButtonStopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonStopMouseClicked
-        try {
-            xbee.connect();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            //jTextAreaLog.setText(e.getMessage());
-        }
-
-        jButtonStart.setEnabled(true);
-        jButtonSend.setEnabled(true);
         jButtonStop.setEnabled(false);
-        //jTextAreaLog.setText("Conectado ao dispositivo: '" + xbee.getPortName() + "'");
+        updateButtonsStatus();
     }//GEN-LAST:event_jButtonStopMouseClicked
 
     private void jCheckBoxSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxSaveMouseClicked
         jPanelSave.setVisible(jCheckBoxSave.isSelected());
         
-        jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());
-        jButtonStart.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected());
+        updateButtonsStatus();
     }//GEN-LAST:event_jCheckBoxSaveMouseClicked
 
     private void jComboBoxUnitItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxUnitItemStateChanged
         jLabelUnit.setText(jComboBoxUnit.getSelectedItem().toString());
     }//GEN-LAST:event_jComboBoxUnitItemStateChanged
 
+    private void updateButtonsStatus() {
+        jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());        
+        jButtonStart.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected() && !jButtonStop.isEnabled());
+        jButtonStop.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected() && !jButtonStart.isEnabled());
+    }
     
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         
     }
