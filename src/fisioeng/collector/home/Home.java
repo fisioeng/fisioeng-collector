@@ -3,7 +3,6 @@ package fisioeng.collector.home;
 import fisioeng.collector.Logger;
 import fisioeng.collector.serial.Discover;
 import fisioeng.collector.serial.XBee;
-import java.lang.reflect.Array;
 import java.util.List;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -12,8 +11,8 @@ public class Home extends javax.swing.JFrame {
     protected XBee xbee;
     protected Logger log;
     protected Boolean thStopFlag;
-    
-    
+
+
     public Home() {
         initComponents();
         listDevices();
@@ -21,19 +20,19 @@ public class Home extends javax.swing.JFrame {
         log = new Logger(jTextAreaLog);
     }
 
-    private void listDevices () {        
+    private void listDevices () {
         Discover d = new Discover();
         List<String> list = d.getAvailablePorts();
         String[] listData = new String[10];
         Integer count = 0;
-        
+
         for (String deviceName : list) {
             listData[count] = deviceName;
             count++;
         }
-        
+
         jList1.setListData(listData);
-        
+
         jList1.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent evt) {
@@ -44,11 +43,11 @@ public class Home extends javax.swing.JFrame {
                         xbee.disconnect();
                         log.info("Desconectado da porta '" + xbee.getPortName() + "' com sucesso.");
                     }
-                    
+
                     xbee.setPortName(portName);
-                    
+
                     xbee.connect();
-                    
+
                     updateButtonsStatus();
                     log.info("Conectado a porta '" + portName + "' com sucesso.");
                 } catch (Exception e) {
@@ -78,6 +77,18 @@ public class Home extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jButtonCloseAbout = new javax.swing.JButton();
+        jDialogSettings = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        jButtonSaveConfig = new javax.swing.JButton();
+        jButtonCloseConfig = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jTextFieldCommand = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -102,6 +113,7 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuHelp = new javax.swing.JMenu();
         jMenuIAbout = new javax.swing.JMenuItem();
 
@@ -204,6 +216,100 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonCloseAbout))
+        );
+
+        jDialogSettings.setTitle("Configurações");
+        jDialogSettings.setLocation(new java.awt.Point(100, 100));
+        jDialogSettings.setMaximumSize(new java.awt.Dimension(400, 320));
+        jDialogSettings.setMinimumSize(new java.awt.Dimension(400, 320));
+        jDialogSettings.setModal(true);
+        jDialogSettings.setPreferredSize(new java.awt.Dimension(400, 300));
+
+        jLabel13.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel13.setText("Configurações");
+
+        jButtonSaveConfig.setText("Salvar");
+
+        jButtonCloseConfig.setText("Cancelar");
+        jButtonCloseConfig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCloseConfigActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Host");
+
+        jLabel15.setText("Rota");
+
+        jTextField3.setBackground(new java.awt.Color(254, 254, 254));
+        jTextField3.setText("http://fisioeng.local:3000");
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setText("/companies/1/branches/1/analytes/1/samplings/1/measures");
+
+        jLabel16.setText("Apikey");
+
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField4.setText("jTextField4");
+
+        jLabel17.setText("Verbo HTTP");
+
+        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField5.setText("POST");
+
+        javax.swing.GroupLayout jDialogSettingsLayout = new javax.swing.GroupLayout(jDialogSettings.getContentPane());
+        jDialogSettings.getContentPane().setLayout(jDialogSettingsLayout);
+        jDialogSettingsLayout.setHorizontalGroup(
+            jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogSettingsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialogSettingsLayout.createSequentialGroup()
+                        .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jDialogSettingsLayout.createSequentialGroup()
+                                    .addComponent(jButtonCloseConfig)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButtonSaveConfig))
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel14)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDialogSettingsLayout.setVerticalGroup(
+            jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogSettingsLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSaveConfig)
+                    .addComponent(jButtonCloseConfig))
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -400,7 +506,16 @@ public class Home extends javax.swing.JFrame {
         jMenu1.setText("Arquivo");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Preferências");
+        jMenu2.setText("Configurações");
+
+        jMenuItem1.setText("Acesso");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
         jMenuBar1.add(jMenu2);
 
         jMenuHelp.setText("Ajuda");
@@ -425,26 +540,26 @@ public class Home extends javax.swing.JFrame {
         String command = jTextFieldCommand.getText();
         String data = "";
         String[] dataArray = new String[3];
-        
+
         try {
             xbee.sendMensage(command);
-            
-            data = xbee.getData(); 
+
+            data = xbee.getData();
             if(null == data){
                 throw new Exception("Os dados retornados são inválidos");
             }
-            
+
             dataArray = xbee.getData().split(" ");
-            
+
             data = dataArray[2];
-            
+
             jLabelMeasure.setText(data);
         } catch (Exception e) {
             log.error(e.getMessage());
             jLabelMeasure.setText("N/A");
         }
-        
-        
+
+
         log.info("Comando '" + command + "' foi enviado para '" + xbee.getPortName() + "'.");
         log.info("Comando '" + command + "' retornou '" + data + "'");
     }//GEN-LAST:event_jButtonSendMouseClicked
@@ -454,12 +569,12 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCommandActionPerformed
 
     private void jButtonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonStartMouseClicked
-        
+
         jButtonStop.setEnabled(xbee.isConnected());
         updateButtonsStatus();
         thStopFlag = false;
-        
-        
+
+
         Runnable dataLoop = new Runnable() {
             String command = jTextFieldCommand.getText();
             String data = "";
@@ -467,15 +582,15 @@ public class Home extends javax.swing.JFrame {
 
             int frequencia = Integer.parseInt(jTextFieldFrequency.getText());
             int duracao = Integer.parseInt(jTextFieldDuration.getText())*60;
-            
+
             @Override
             public void run() {
                 for (int i = 0; i < duracao; i += frequencia) {
-                    
+
                     try {
                         xbee.sendMensage(command);
 
-                        data = xbee.getData(); 
+                        data = xbee.getData();
                         if(null == data){
                             throw new Exception("Os dados retornados são inválidos");
                         }
@@ -495,23 +610,23 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         };
-        
+
         Thread thDataLoop = new Thread(dataLoop);
         thDataLoop.start();
-        
-        
+
+
     }//GEN-LAST:event_jButtonStartMouseClicked
 
     private void jButtonStopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonStopMouseClicked
-        
-        thStopFlag = true;        
+
+        thStopFlag = true;
         jButtonStop.setEnabled(false);
         updateButtonsStatus();
     }//GEN-LAST:event_jButtonStopMouseClicked
 
     private void jCheckBoxSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxSaveMouseClicked
         jPanelSave.setVisible(jCheckBoxSave.isSelected());
-        
+
         updateButtonsStatus();
     }//GEN-LAST:event_jCheckBoxSaveMouseClicked
 
@@ -527,29 +642,45 @@ public class Home extends javax.swing.JFrame {
         jDialogAbout.setVisible(false);
     }//GEN-LAST:event_jButtonCloseAboutActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        jDialogSettings.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButtonCloseConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseConfigActionPerformed
+        jDialogSettings.setVisible(false);
+    }//GEN-LAST:event_jButtonCloseConfigActionPerformed
+
     private void updateButtonsStatus() {
-        jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());        
+        jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());
         jButtonStart.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected() && !jButtonStop.isEnabled());
         jButtonStop.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected() && !jButtonStart.isEnabled());
     }
-    
-    
+
+
     public static void main(String args[]) {
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCloseAbout;
+    private javax.swing.JButton jButtonCloseConfig;
+    private javax.swing.JButton jButtonSaveConfig;
     private javax.swing.JButton jButtonSend;
     private javax.swing.JButton jButtonStart;
     private javax.swing.JButton jButtonStop;
     private javax.swing.JCheckBox jCheckBoxSave;
     private javax.swing.JComboBox jComboBoxUnit;
     private javax.swing.JDialog jDialogAbout;
+    private javax.swing.JDialog jDialogSettings;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -566,6 +697,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuHelp;
     private javax.swing.JMenuItem jMenuIAbout;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -573,6 +705,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaLog;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextFieldCommand;
     private javax.swing.JTextField jTextFieldDuration;
     private javax.swing.JTextField jTextFieldFrequency;
