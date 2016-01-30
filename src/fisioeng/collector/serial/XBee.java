@@ -101,19 +101,24 @@ public class XBee  implements Runnable, SerialPortEventListener {
         int novoDado = 0;
         switch (ev.getEventType()) {
             case SerialPortEvent.DATA_AVAILABLE:
+                
                 while (novoDado != -1) {
                     try {
+                        
                         novoDado = input.read();
                         
-                        if (novoDado == -1) {
+                        if (novoDado == 13 || novoDado == -1) {                            
                             break;
                         }
-
-                        if ('\r' == (char) novoDado) {
+                        
+                        if ('\r' == (char) novoDado ) {
                             responseBuffer.append('\n');
                         } else {
                             responseBuffer.append((char) novoDado);
                         }
+                        
+                        
+                        setData(new String(responseBuffer));
                     } catch (IOException ioe) {
                         System.out.println("Erro de leitura serial: " + ioe.getMessage());
                     }
