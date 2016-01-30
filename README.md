@@ -15,4 +15,18 @@ For this, clone the repository and go to libs/ and:
 
 Where <JAVA_HOME> is the path to java instalation. In windows, maybe is "C:\Program Files\Java\jdk[YOUR JAVA VERSION]"
 
-##### Linux
+##### Linux (Debian dists)
+
+To emulate ttyUSB use a emulation application, as socat.
+
+```
+#!shell
+sudo apt-get install socat
+```
+
+And emulate a ttyUSB:
+
+```
+#!shell
+socat -d -d pty,raw,echo=0,link=/dev/ttyUSB1 pty,raw,echo=0,link=/dev/ttyUSB1
+```
