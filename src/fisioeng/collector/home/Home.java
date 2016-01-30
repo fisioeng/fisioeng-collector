@@ -11,6 +11,8 @@ import javax.swing.event.ListSelectionListener;
 public class Home extends javax.swing.JFrame {
     protected XBee xbee;
     protected Logger log;
+    protected Boolean thStopFlag;
+    
     
     public Home() {
         initComponents();
@@ -85,7 +87,7 @@ public class Home extends javax.swing.JFrame {
         jButtonStart = new javax.swing.JButton();
         jCheckBoxSave = new javax.swing.JCheckBox();
         jPanelSave = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldFrequency = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldDuration = new javax.swing.JTextField();
@@ -105,11 +107,9 @@ public class Home extends javax.swing.JFrame {
 
         jDialogAbout.setTitle("Sobre Fisioeng Collector");
         jDialogAbout.setLocation(new java.awt.Point(100, 100));
-        jDialogAbout.setMaximumSize(new java.awt.Dimension(472, 313));
         jDialogAbout.setMinimumSize(new java.awt.Dimension(472, 313));
         jDialogAbout.setModal(true);
         jDialogAbout.setName("Sobre Fisioeng Collector"); // NOI18N
-        jDialogAbout.setPreferredSize(new java.awt.Dimension(472, 313));
         jDialogAbout.setResizable(false);
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -254,7 +254,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelSave.setVisible(false);
 
-        jTextField2.setText("10");
+        jTextFieldFrequency.setText("10");
 
         jLabel4.setText("Duração (minutos)");
 
@@ -269,7 +269,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanelSaveLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
+                    .addComponent(jTextFieldFrequency)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldDuration))
@@ -281,7 +281,7 @@ public class Home extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldFrequency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -454,11 +454,57 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCommandActionPerformed
 
     private void jButtonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonStartMouseClicked
+        
         jButtonStop.setEnabled(xbee.isConnected());
         updateButtonsStatus();
+        thStopFlag = false;
+        
+        
+        Runnable dataLoop = new Runnable() {
+            String command = jTextFieldCommand.getText();
+            String data = "";
+            String[] dataArray = new String[3];
+
+            int frequencia = Integer.parseInt(jTextFieldFrequency.getText());
+            int duracao = Integer.parseInt(jTextFieldDuration.getText())*60;
+            
+            @Override
+            public void run() {
+                for (int i = 0; i < duracao; i += frequencia) {
+                    
+                    try {
+                        xbee.sendMensage(command);
+
+                        data = xbee.getData(); 
+                        if(null == data){
+                            throw new Exception("Os dados retornados são inválidos");
+                        }
+
+                        dataArray = xbee.getData().split(" ");
+
+                        data = dataArray[2];
+                        if(thStopFlag)
+                            break;
+                        jLabelMeasure.setText(data);
+                        log.info("Comando '" + command + "' retornou '" + data + "'");
+                        Thread.sleep((frequencia-2)*1000);
+                    } catch (Exception e) {
+                        log.error(e.getMessage());
+                        jLabelMeasure.setText("N/A");
+                    }
+                }
+            }
+        };
+        
+        Thread thDataLoop = new Thread(dataLoop);
+        thDataLoop.start();
+        
+        
     }//GEN-LAST:event_jButtonStartMouseClicked
 
     private void jButtonStopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonStopMouseClicked
+        
+        thStopFlag = true;        
         jButtonStop.setEnabled(false);
         updateButtonsStatus();
     }//GEN-LAST:event_jButtonStopMouseClicked
@@ -527,8 +573,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaLog;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextFieldCommand;
     private javax.swing.JTextField jTextFieldDuration;
+    private javax.swing.JTextField jTextFieldFrequency;
     // End of variables declaration//GEN-END:variables
 }
