@@ -16,7 +16,7 @@ public class Discover {
             CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
             list.add(port.getName());
         }
-
+        
         return list;
     }
     
