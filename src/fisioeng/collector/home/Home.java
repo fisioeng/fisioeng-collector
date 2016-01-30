@@ -357,6 +357,9 @@ public class Home extends javax.swing.JFrame {
 
     private void jCheckBoxSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxSaveMouseClicked
         jPanelSave.setVisible(jCheckBoxSave.isSelected());
+        
+        jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());
+        jButtonStart.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected());
     }//GEN-LAST:event_jCheckBoxSaveMouseClicked
 
     private void jComboBoxUnitItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxUnitItemStateChanged
