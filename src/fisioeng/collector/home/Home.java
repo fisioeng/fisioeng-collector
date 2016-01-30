@@ -1,6 +1,7 @@
 package fisioeng.collector.home;
 
 import fisioeng.collector.Logger;
+import fisioeng.collector.Settings;
 import fisioeng.collector.serial.Discover;
 import fisioeng.collector.serial.XBee;
 import java.util.List;
@@ -11,13 +12,16 @@ public class Home extends javax.swing.JFrame {
     protected XBee xbee;
     protected Logger log;
     protected Boolean thStopFlag;
-
+    protected Settings settings;
 
     public Home() {
+        settings = new Settings();
+
         initComponents();
         listDevices();
         xbee = new XBee();
         log = new Logger(jTextAreaLog);
+
     }
 
     private void listDevices () {
@@ -83,12 +87,12 @@ public class Home extends javax.swing.JFrame {
         jButtonCloseConfig = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldHost = new javax.swing.JTextField();
+        jTextFieldRote = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextFieldApiKey = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextFieldHttpVerb = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jTextFieldCommand = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -229,6 +233,11 @@ public class Home extends javax.swing.JFrame {
         jLabel13.setText("Configurações");
 
         jButtonSaveConfig.setText("Salvar");
+        jButtonSaveConfig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSaveConfigMouseClicked(evt);
+            }
+        });
 
         jButtonCloseConfig.setText("Cancelar");
         jButtonCloseConfig.addActionListener(new java.awt.event.ActionListener() {
@@ -241,21 +250,21 @@ public class Home extends javax.swing.JFrame {
 
         jLabel15.setText("Rota");
 
-        jTextField3.setBackground(new java.awt.Color(254, 254, 254));
-        jTextField3.setText("http://fisioeng.local:3000");
+        jTextFieldHost.setBackground(new java.awt.Color(254, 254, 254));
+        jTextFieldHost.setText(settings.getHost());
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("/companies/1/branches/1/analytes/1/samplings/1/measures");
+        jTextFieldRote.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldRote.setText(settings.getRote());
 
         jLabel16.setText("Apikey");
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setText("jTextField4");
+        jTextFieldApiKey.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldApiKey.setText(settings.getApiKey());
 
         jLabel17.setText("Verbo HTTP");
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setText("POST");
+        jTextFieldHttpVerb.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldHttpVerb.setText(settings.getHttpVerb());
 
         javax.swing.GroupLayout jDialogSettingsLayout = new javax.swing.GroupLayout(jDialogSettings.getContentPane());
         jDialogSettings.getContentPane().setLayout(jDialogSettingsLayout);
@@ -266,7 +275,7 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialogSettingsLayout.createSequentialGroup()
                         .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldHttpVerb, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(27, 27, 27)
                         .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,11 +285,11 @@ public class Home extends javax.swing.JFrame {
                                     .addComponent(jButtonCloseConfig)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jButtonSaveConfig))
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextFieldApiKey, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel14)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldHost, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldRote, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -292,19 +301,19 @@ public class Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldHost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldRote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldHttpVerb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldApiKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSaveConfig)
@@ -650,6 +659,16 @@ public class Home extends javax.swing.JFrame {
         jDialogSettings.setVisible(false);
     }//GEN-LAST:event_jButtonCloseConfigActionPerformed
 
+    private void jButtonSaveConfigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSaveConfigMouseClicked
+        settings
+                .setHost(jTextFieldHost.getText())
+                .setRote(jTextFieldRote.getText())
+                .setHttpVerb(jTextFieldHttpVerb.getText())
+                .setApiKey(jTextFieldApiKey.getText())
+                .Save();
+        jDialogSettings.setVisible(false);
+    }//GEN-LAST:event_jButtonSaveConfigMouseClicked
+
     private void updateButtonsStatus() {
         jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());
         jButtonStart.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected() && !jButtonStop.isEnabled());
@@ -705,12 +724,12 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaLog;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextFieldApiKey;
     private javax.swing.JTextField jTextFieldCommand;
     private javax.swing.JTextField jTextFieldDuration;
     private javax.swing.JTextField jTextFieldFrequency;
+    private javax.swing.JTextField jTextFieldHost;
+    private javax.swing.JTextField jTextFieldHttpVerb;
+    private javax.swing.JTextField jTextFieldRote;
     // End of variables declaration//GEN-END:variables
 }
