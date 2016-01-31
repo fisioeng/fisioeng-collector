@@ -1,6 +1,6 @@
-package junit;
+package tests;
 
-import junit.collector.MeasureSpec;
+import tests.collector.MeasureSpec;
 import junit.framework.TestSuite;
 
 public class Runner {

@@ -1,4 +1,4 @@
-package junit.collector;
+package tests.collector;
 
 import fisioeng.collector.Measure;
 import junit.framework.TestCase;
