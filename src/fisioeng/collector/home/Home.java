@@ -1,10 +1,11 @@
 package fisioeng.collector.home;
 
-import fisioeng.collector.Logger;
-import fisioeng.collector.Settings;
+import fisioeng.collector.*;
 import fisioeng.collector.serial.Discover;
 import fisioeng.collector.serial.XBee;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -13,10 +14,13 @@ public class Home extends javax.swing.JFrame {
     protected Logger log;
     protected Boolean thStopFlag;
     protected Settings settings;
+    protected Request request;
 
     public Home() {
         settings = new Settings();
-
+        request = new Request();
+        
+               
         initComponents();
         listDevices();
         xbee = new XBee();
@@ -106,9 +110,12 @@ public class Home extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldDuration = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jTextFieldSerie = new javax.swing.JTextField();
         jButtonStop = new javax.swing.JButton();
         jLabelMeasure = new javax.swing.JLabel();
         jLabelUnit = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jPanel4 = new javax.swing.JPanel();
@@ -224,10 +231,8 @@ public class Home extends javax.swing.JFrame {
 
         jDialogSettings.setTitle("Configurações");
         jDialogSettings.setLocation(new java.awt.Point(100, 100));
-        jDialogSettings.setMaximumSize(new java.awt.Dimension(400, 320));
         jDialogSettings.setMinimumSize(new java.awt.Dimension(400, 320));
         jDialogSettings.setModal(true);
-        jDialogSettings.setPreferredSize(new java.awt.Dimension(400, 300));
 
         jLabel13.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel13.setText("Configurações");
@@ -373,9 +378,13 @@ public class Home extends javax.swing.JFrame {
 
         jLabel4.setText("Duração (minutos)");
 
-        jLabel3.setText("Frequência (em segundos)");
+        jLabel3.setText("Frequência (segundos)");
 
         jTextFieldDuration.setText("5");
+
+        jLabel18.setText("Serie");
+
+        jTextFieldSerie.setText("1");
 
         javax.swing.GroupLayout jPanelSaveLayout = new javax.swing.GroupLayout(jPanelSave);
         jPanelSave.setLayout(jPanelSaveLayout);
@@ -384,24 +393,36 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanelSaveLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldFrequency)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldDuration))
+                    .addGroup(jPanelSaveLayout.createSequentialGroup()
+                        .addGroup(jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel18))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldDuration, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(jTextFieldSerie)))
+                    .addGroup(jPanelSaveLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(jTextFieldFrequency, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSaveLayout.setVerticalGroup(
             jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSaveLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldFrequency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldFrequency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addGroup(jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextFieldDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanelSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jTextFieldSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39))
         );
 
         jButtonStop.setText("Parar");
@@ -420,6 +441,14 @@ public class Home extends javax.swing.JFrame {
         jLabelUnit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelUnit.setText("bpm");
 
+        jButton1.setText("TEST");
+        jButton1.setVisible(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -427,27 +456,32 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jComboBoxUnit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldCommand, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanelSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckBoxSave))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonSend)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonStart)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelUnit)
-                        .addGap(64, 64, 64))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanelSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jCheckBoxSave)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jComboBoxUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldCommand, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButtonSend)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButtonStart))
+                                    .addComponent(jLabelMeasure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUnit)
+                            .addComponent(jButtonStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addContainerGap(61, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,22 +495,25 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jButtonStart)
                     .addComponent(jButtonStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBoxUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxSave))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelMeasure)
-                        .addComponent(jLabelUnit)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelMeasure)
+                            .addComponent(jLabelUnit))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanelSave, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 12, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 12, 470, 310));
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { };
@@ -549,7 +586,8 @@ public class Home extends javax.swing.JFrame {
         String command = jTextFieldCommand.getText();
         String data = "";
         String[] dataArray = new String[3];
-
+        Measure measure = new Measure();
+        
         try {
             xbee.sendMensage(command);
 
@@ -563,6 +601,14 @@ public class Home extends javax.swing.JFrame {
             data = dataArray[2];
 
             jLabelMeasure.setText(data);
+            
+            measure.setValue(Integer.parseInt(data))
+                .setUnit(jComboBoxUnit.getSelectedItem().toString())
+                .setSerie(Integer.parseInt(jTextFieldSerie.getText()));
+            
+            if (jCheckBoxSave.isSelected()) {
+                request.saveMeasure(settings.getHost(), settings.getRote(), measure);
+            }            
         } catch (Exception e) {
             log.error(e.getMessage());
             jLabelMeasure.setText("N/A");
@@ -675,6 +721,20 @@ public class Home extends javax.swing.JFrame {
         jDialogSettings.setVisible(false);
     }//GEN-LAST:event_jButtonSaveConfigMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Measure measure = new Measure();
+        
+        measure.setValue(137)
+                .setUnit("bpm")
+                .setSerie(1);
+        
+        try {
+            log.info("Status code: " + request.saveMeasure(settings.getHost(), settings.getRote(), measure).getStatusLine().getStatusCode());
+        } catch (IOException ex) {
+            log.error(ex.getMessage());
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
     private void updateButtonsStatus() {
         jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());
         jButtonStart.setEnabled(jCheckBoxSave.isSelected() && xbee.isConnected() && !jButtonStop.isEnabled());
@@ -687,6 +747,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCloseAbout;
     private javax.swing.JButton jButtonCloseConfig;
     private javax.swing.JButton jButtonSaveConfig;
@@ -706,6 +767,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -737,5 +799,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldHost;
     private javax.swing.JTextField jTextFieldHttpVerb;
     private javax.swing.JTextField jTextFieldRote;
+    private javax.swing.JTextField jTextFieldSerie;
     // End of variables declaration//GEN-END:variables
 }
