@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/fisioeng/fisioeng-collector.svg?branch=master)](https://travis-ci.org/fisioeng/fisioeng-collector)
 # Fisioeng Collector
 #### Software on-line de análise e processamento dos dados oriundos de sensores de frequência cardíaca e temperatura superficial para otimização da agropecuária
 
