@@ -1,6 +1,6 @@
 language: java
 before_script:
-  - ant -Djavac.includes=junit/Runner.java -Dnb.internal.action.name=run.single -Drun.class=junit.Runner run-single
+  - javac src/junit/collector/MeasureSpec.java src/junit/Runner.java src/fisioeng/collector/Measure.java
 script:
   - java junit.Runner
   
