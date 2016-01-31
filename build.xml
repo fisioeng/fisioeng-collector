@@ -9,7 +9,8 @@
 <!-- in the project's Project Properties dialog box.-->
 <project name="fisioeng-collector" default="default" basedir=".">
     <description>Builds, tests, and runs the project fisioeng-collector.</description>
-
+    <import file="nbproject/build-impl.xml"/>
+ <!--
     <property name="src" location="src"/>
     <property name="build" location="build"/>
     <property name="dist"  location="dist"/>
@@ -52,6 +53,8 @@
       <delete dir="${build}"/>
       <delete dir="${dist}"/>
     </target>
+  -->
+
     <!--
 
     There exist several targets which are by default empty and which can be
