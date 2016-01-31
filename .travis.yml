@@ -1,5 +1,4 @@
 language: java
-
 before_script:
   - ant test
   - cd build/classes/
