@@ -1,8 +1,9 @@
 language: java
 
 before_script:
-  - javac src/junit/collector/MeasureSpec.java src/junit/Runner.java src/fisioeng/collector/Measure.java
+  - ant test
+  - cd build/classes/
 
 script:
-  - java junit.Runner
+  - java tests.Runner
   
