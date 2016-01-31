@@ -1,0 +1,6 @@
+language: java
+before_script:
+  - ant -Djavac.includes=junit/Runner.java -Dnb.internal.action.name=run.single -Drun.class=junit.Runner run-single
+script:
+  - java junit.Runner
+  
