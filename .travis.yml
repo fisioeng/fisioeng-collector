@@ -1,6 +1,10 @@
 language: java
+
+install: ant deps
+
 before_script:
   - javac src/junit/collector/MeasureSpec.java src/junit/Runner.java src/fisioeng/collector/Measure.java
+
 script:
   - java junit.Runner
   
