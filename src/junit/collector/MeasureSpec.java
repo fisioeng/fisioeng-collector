@@ -1,43 +1,43 @@
-package tests.collector;
+package junit.collector;
 
 import fisioeng.collector.Measure;
-import static org.junit.Assert.assertEquals;
+import junit.framework.TestCase;
 
 import org.junit.Test;
 
-public class MeasureSpec {
+public class MeasureSpec extends TestCase {
   String unit = "%";
   int value = 18372;
   
   @Test
-  public void getValueNull() {
+  public void testGetValueNull() {
     Measure measure = new Measure();
 
     assertEquals("Should value be '0' by default'", 0, measure.getValue());
   }
   
   @Test
-  public void getValueReturnWhatWasProvided() {
+  public void testGetValueReturnWhatWasProvided() {
     Measure measure = new Measure();
     measure.setValue(value);
     assertEquals("Should getValue return what was provided int setValue", value, measure.getValue());
   }
   
   @Test
-  public void setValueReturnMeasureInstance() {
+  public void testSetValueReturnMeasureInstance() {
     Measure measure = new Measure();
     assertEquals("Should setValue to return measure instance", measure, measure.setValue(value));
   }
   
   @Test
-  public void getUnitNull() {
+  public void testGetUnitNull() {
     Measure measure = new Measure();
 
     assertEquals("Should unit be 'null' by default'", null, measure.getUnit());
   }
   
   @Test
-  public void getUnitReturnWhatWasProvided() {
+  public void testGetUnitReturnWhatWasProvided() {
     Measure measure = new Measure();
     measure.setUnit(unit);
     
@@ -45,7 +45,7 @@ public class MeasureSpec {
   }
   
   @Test
-  public void setUnitReturnMeasureInstance() {
+  public void testSetUnitReturnMeasureInstance() {
     Measure measure = new Measure();
     assertEquals("Should setUnit to return measure instance", measure, measure.setUnit(unit));
   }
