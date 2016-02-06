@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src/fisioeng"/>
 	<classpathentry kind="src" path="src/tests"/>
 	<classpathentry kind="lib" path="libs/RXTXcomm.jar"/>
+	<classpathentry kind="lib" path="granite-client-packman-0.7.6"/>
 	<classpathentry kind="lib" path="libs/junit/junit4-4.11.jar"/>
 	<classpathentry kind="lib" path="libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9"/>
 	<classpathentry kind="lib" path="libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2"/>
