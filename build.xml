@@ -16,6 +16,7 @@
     <property name="test.build"  value="build/test"/>
     <property name="test.src"    value="src/tests"/>
 
+    <path id="classpath.base" />
     
 
     <path id="classpath.test">
