@@ -10,6 +10,7 @@
 <project name="fisioeng-collector" default="test" basedir=".">
     <description>Builds, tests, and runs the project fisioeng-collector.</description>
     <import file="nbproject/build-impl.xml"/>
+    <import file=".classpath.xml"/>
 
     <property name="main.build"  value="build/main"/>
     <property name="main.src"    value="src/fisioeng"/>
@@ -17,7 +18,6 @@
     <property name="test.src"    value="src/tests"/>
 
     <path id="classpath.base" />
-    
 
     <path id="classpath.test">
       <pathelement location="$libs/junit/junit4-4.11.jar" />
