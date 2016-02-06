@@ -9,7 +9,7 @@
 <!-- in the project's Project Properties dialog box.-->
 <project name="fisioeng-collector" default="test" basedir=".">
     <description>Builds, tests, and runs the project fisioeng-collector.</description>
-    <import file="nbproject/build-impl.xml"/>
+    
     <import file=".classpath.xml"/>
 
     <property name="main.build"  value="build/main"/>
@@ -25,6 +25,8 @@
       <path refid="classpath.base" />
     </path>
 
+    <import file="nbproject/build-impl.xml"/>
+<!--
     <target name="test" depends="run, clean" />
 
     <target name="compile">
@@ -62,7 +64,7 @@
       <delete dir="${test.src}"/>
       <echo message="clean done" />
     </target>
-  
+-->
 
     <!--
 
