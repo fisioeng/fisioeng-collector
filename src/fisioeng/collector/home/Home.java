@@ -580,9 +580,7 @@ public class Home extends javax.swing.JFrame {
                 .setUnit(jComboBoxUnit.getSelectedItem().toString())
                 .setSerie(Integer.parseInt(jTextFieldSerie.getText()));
             
-            if (jCheckBoxSave.isSelected()) {
-                request.saveMeasure(settings.getUrl(), measure);
-            }            
+            request.saveMeasure(settings.getUrl(), measure);
         } catch (Exception e) {
             log.error(e.getMessage());
             jLabelMeasure.setText("N/A");
