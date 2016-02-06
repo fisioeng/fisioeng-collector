@@ -9,29 +9,28 @@
 <!-- in the project's Project Properties dialog box.-->
 <project name="fisioeng-collector" default="test" basedir=".">
     <description>Builds, tests, and runs the project fisioeng-collector.</description>
+    <import file="nbproject/build-impl.xml"/>
     
-   
 
     <property name="main.build"  value="build/main"/>
     <property name="main.src"    value="src/fisioeng"/>
     <property name="test.build"  value="build/test"/>
     <property name="test.src"    value="src/tests"/>
 
-    <path id="classpath.base" />
 
+    <path id="classpath.base" />
     <path id="classpath.test">
       <pathelement location="$libs/junit/junit4-4.11.jar" />
       <pathelement location="${main.build}" />
       <path refid="classpath.base" />
     </path>
 
-    <import file="nbproject/build-impl.xml"/>
-<!--
     <target name="test" depends="run, clean" />
 
     <target name="compile">
       <mkdir dir="${main.build}"/>
       <javac srcdir="${main.src}" destdir="${main.build}" includeantruntime="false">
+        <classpath refid="classpath.test"/>
         <classpath refid="classpath.base"/>
       </javac>
     </target>
@@ -40,6 +39,7 @@
       <mkdir dir="${test.build}"/>
       <javac srcdir="${test.src}" destdir="${test.build}" includeantruntime="false">
         <classpath refid="classpath.test"/>
+        <classpath refid="classpath.base"/>
       </javac>
       <echo message="Build done" />
     </target>
@@ -64,7 +64,7 @@
       <delete dir="${test.src}"/>
       <echo message="clean done" />
     </target>
--->
+  
 
     <!--
 
