@@ -7,85 +7,53 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="fisioeng-collector" default="test" basedir=".">
+<project name="fisioeng-collector" default="default" basedir=".">
     <description>Builds, tests, and runs the project fisioeng-collector.</description>
     <import file="nbproject/build-impl.xml"/>
+ <!--
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="dist"  location="dist"/>
+    <property name="test"  location="src/tests"/>
+    <property name="junit" location="libs/junit"/>
 
-
-    <property name="main.build"  value="build/main"/>
-    <property name="main.src"    value="src/fisioeng"/>
-    <property name="test.build"  value="build/test"/>
-    <property name="test.src"    value="src/tests"/>
-
-
-    <path id="classpath.base">
-        <pathelement location="$src/fisioeng"/>
-        <pathelement location="$src/tests"/>
-        <pathelement location="$libs/RXTXcomm.jar"/>
-        <pathelement location="$libs/granite-client-packman-0.7.6.jar"/>
-        <pathelement location="$libs/junit/junit4-4.11.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar"/>
-        <pathelement location="$libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar"/>
-    </path>
     <path id="classpath.test">
-      <pathelement location="$libs/junit/junit4-4.11.jar" />
-      <pathelement location="$libs/granite-client-packman-0.7.6.jar" />
-      <pathelement location="${main.build}" />
-      <path refid="classpath.base" />
+      <pathelement location="${junit}" />
+      <pathelement location="${test}" />
+      <pathelement location="${build}/classes/tests"/>
     </path>
 
-    <target name="test" depends="run, clean" >
-        <property file="nbproject/configs/${config}.properties"/>
-        <property file="nbproject/project.properties"/>
+    <target name="init">
+      <tstamp/>
+      <mkdir dir="${build}"/>
+      <mkdir dir="${build}/classes/tests"/>
     </target>
 
-    <target name="compile">
-        
-      <mkdir dir="${main.build}"/>
-      <javac srcdir="${main.src}" destdir="${main.build}" includeantruntime="false">
-        <classpath refid="classpath.test"/>
-        <classpath refid="classpath.base"/>
+    <target name="compile" depends="init" description="compile">
+      <javac srcdir="${test}" destdir="${build}/classes/tests" includeantruntime="last">
+        <classpath>
+          <pathelement location="${junit}"/>
+        </classpath>
       </javac>
     </target>
 
-    <target name="build" depends="compile">
-      <mkdir dir="${test.build}"/>
-      <javac srcdir="${test.src}" destdir="${test.build}" includeantruntime="false">
-        <classpath refid="classpath.test"/>
-        <classpath refid="classpath.base"/>
-      </javac>
-      <echo message="Build done" />
-    </target>
-
-    <target name="run" depends="build">
-      <junit printsummary="on" haltonfailure="yes">
-          <classpath>
-            <path refid="classpath.test" />
-            <pathelement location="${test.build}"/>
-          </classpath>
-          <formatter type="brief" usefile="false" />
-          <batchtest>
-              <fileset dir="${test.src}" includes="**/*Test*.java" />
-          </batchtest>
+    <target name="test" depends="compile">
+      <junit dir="${build}/classes/tests" fork="yes" haltonfailure="true">
+        <classpath refid="classpath.test" />
+        <batchtest fork="yes" todir="tres">
+          <formatter type="brief" usefile="false"/>
+          <fileset dir="${junit}">
+            <include name="**/*Spec.java"/>
+          </fileset>
+        </batchtest>
       </junit>
     </target>
 
     <target name="clean" description="clean up" >
-      <delete dir="${main.build}"/>
-      <delete dir="${test.build}"/>
-      <delete dir="${main.src}"/>
-      <delete dir="${test.src}"/>
-      <echo message="clean done" />
+      <delete dir="${build}"/>
+      <delete dir="${dist}"/>
     </target>
-  
+  -->
 
     <!--
 
