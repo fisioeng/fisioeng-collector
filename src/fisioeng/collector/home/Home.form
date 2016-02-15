@@ -121,7 +121,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="v0.0.0-beta"/>
+                <Property name="text" type="java.lang.String" value="v0.0.1-beta"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -174,9 +174,6 @@
         <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
           <Point value="[100, 100]"/>
         </Property>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[360, 310]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[360, 310]"/>
         </Property>
@@ -226,7 +223,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jTextFieldApiKey" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButtonSaveConfig" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonCloseConfig" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
