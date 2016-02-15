@@ -137,7 +137,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel7.setText("Software de coleta de dados de sensores");
 
-        jLabel8.setText("v0.0.0-beta");
+        jLabel8.setText("v0.0.1-beta");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fisioeng/collector/imagens/univasf.png"))); // NOI18N
 
@@ -228,7 +228,6 @@ public class Home extends javax.swing.JFrame {
 
         jDialogSettings.setTitle("Configurações");
         jDialogSettings.setLocation(new java.awt.Point(100, 100));
-        jDialogSettings.setMaximumSize(new java.awt.Dimension(360, 310));
         jDialogSettings.setMinimumSize(new java.awt.Dimension(360, 310));
         jDialogSettings.setModal(true);
 
@@ -303,7 +302,7 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldApiKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSaveConfig)
                     .addComponent(jButtonCloseConfig))
                 .addContainerGap(61, Short.MAX_VALUE))
