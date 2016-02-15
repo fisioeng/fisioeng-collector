@@ -575,12 +575,6 @@ public class Home extends javax.swing.JFrame {
             data = dataArray[2];
 
             jLabelMeasure.setText(data);
-            
-            measure.setValue(Integer.parseInt(data))
-                .setUnit(jComboBoxUnit.getSelectedItem().toString())
-                .setSerie(Integer.parseInt(jTextFieldSerie.getText()));
-            
-            request.saveMeasure(settings.getUrl(), measure);
         } catch (Exception e) {
             log.error(e.getMessage());
             jLabelMeasure.setText("N/A");
