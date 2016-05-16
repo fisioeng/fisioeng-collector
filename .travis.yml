@@ -1,5 +1,1 @@
 language: java
-before_script:
-	- cd build/classes
-script:
-	- java testes.Runner
