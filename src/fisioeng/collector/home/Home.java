@@ -5,7 +5,6 @@ import fisioeng.collector.serial.Discover;
 import fisioeng.collector.serial.XBee;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -255,12 +254,10 @@ public class Home extends javax.swing.JFrame {
 
         jLabel16.setText("Apikey");
 
-        jTextFieldApiKey.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldApiKey.setText(settings.getApiKey());
 
         jLabel17.setText("Serie");
 
-        jTextFieldHttpVerb.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldHttpVerb.setText(settings.getSerie());
 
         javax.swing.GroupLayout jDialogSettingsLayout = new javax.swing.GroupLayout(jDialogSettings.getContentPane());
@@ -385,7 +382,7 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(jTextFieldSerie)))
                     .addGroup(jPanelSaveLayout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addComponent(jTextFieldFrequency, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -482,7 +479,7 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(jLabelMeasure)
                             .addComponent(jLabelUnit))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelSave, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
 
@@ -520,7 +517,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 320, 608, -1));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 608, -1));
 
         jMenu1.setText("Arquivo");
         jMenuBar1.add(jMenu1);
