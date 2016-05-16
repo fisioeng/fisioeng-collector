@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.org/fisioeng/fisioeng-collector.svg?branch=master)](https://travis-ci.org/fisioeng/fisioeng-collector)
+[![Build Status](https://travis-ci.org/fisioeng/fisioeng-collector.svg?branch=master)](https://travis-ci.org/fisioeng/fisioeng-collector) [![Code Climate](https://codeclimate.com/github/fisioeng/fisioeng-collector/badges/gpa.svg)](https://codeclimate.com/github/fisioeng/fisioeng-collector)
 # Fisioeng Collector
-#### Software on-line de análise e processamento dos dados oriundos de sensores de frequência cardíaca e temperatura superficial para otimização da agropecuária
+Online software analysis and data processing derived heart rate sensors and surface temperature for the agricultural optimization.
 
 
-### Instalation
+## Instalation
 
-##### Windows
+### Windows
 
 The application has dependency with rxtx library, and it should be installed in the system.
 For this, clone the repository and go to libs/ and:
@@ -16,14 +16,14 @@ For this, clone the repository and go to libs/ and:
 
 Where <JAVA_HOME> is the path to java instalation. In windows, maybe is "C:\Program Files\Java\jdk[YOUR JAVA VERSION]"
 
-##### Linux (Debian dists)
+### Linux (Debian dists)
 See your architetura and put in her files.
 
  * copy RXTXcomm.jar ---> [JAVA_HOME]/jre/lib/ext
  * copy librxtxSerial.so ---> [JAVA_HOME]/jre/lib/i386/
  * copy librxtxParallel.so ---> [JAVA_HOME]/jre/lib/i386/
 
-NOTE: For a JDK installation on architecture=x86_64, just change the
+> NOTE: For a JDK installation on architecture=x86_64, just change the
 i386 to x86_64 above.
 
 To emulate ttyUSB use a emulation application, as socat.

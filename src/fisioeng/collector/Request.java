@@ -5,8 +5,6 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -17,9 +15,9 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 public class Request {
     
-    public HttpResponse saveMeasure(String host, String rote, Measure measure) throws UnsupportedEncodingException, IOException {
+    public HttpResponse saveMeasure(String url, Measure measure) throws UnsupportedEncodingException, IOException {
         HttpClient httpClient = HttpClientBuilder.create().build();
-        HttpPost request = new HttpPost(host + rote);
+        HttpPost request = new HttpPost(url);
         request.setEntity(buildParams(measure));
         request.addHeader("content-type", "application/json");              
         

@@ -90,9 +90,7 @@ public class Home extends javax.swing.JFrame {
         jButtonSaveConfig = new javax.swing.JButton();
         jButtonCloseConfig = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jTextFieldHost = new javax.swing.JTextField();
-        jTextFieldRote = new javax.swing.JTextField();
+        jTextFieldUrl = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jTextFieldApiKey = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -115,8 +113,6 @@ public class Home extends javax.swing.JFrame {
         jButtonStop = new javax.swing.JButton();
         jLabelMeasure = new javax.swing.JLabel();
         jLabelUnit = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextFieldTest = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jPanel4 = new javax.swing.JPanel();
@@ -141,7 +137,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel7.setText("Software de coleta de dados de sensores");
 
-        jLabel8.setText("v0.0.0-beta");
+        jLabel8.setText("v0.0.1-beta");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fisioeng/collector/imagens/univasf.png"))); // NOI18N
 
@@ -232,7 +228,7 @@ public class Home extends javax.swing.JFrame {
 
         jDialogSettings.setTitle("Configurações");
         jDialogSettings.setLocation(new java.awt.Point(100, 100));
-        jDialogSettings.setMinimumSize(new java.awt.Dimension(400, 320));
+        jDialogSettings.setMinimumSize(new java.awt.Dimension(360, 310));
         jDialogSettings.setModal(true);
 
         jLabel13.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -252,25 +248,20 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Host");
+        jLabel14.setText("API Url");
 
-        jLabel15.setText("Rota");
-
-        jTextFieldHost.setBackground(new java.awt.Color(254, 254, 254));
-        jTextFieldHost.setText(settings.getHost());
-
-        jTextFieldRote.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldRote.setText(settings.getRote());
+        jTextFieldUrl.setBackground(new java.awt.Color(254, 254, 254));
+        jTextFieldUrl.setText(settings.getUrl());
 
         jLabel16.setText("Apikey");
 
         jTextFieldApiKey.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldApiKey.setText(settings.getApiKey());
 
-        jLabel17.setText("Verbo HTTP");
+        jLabel17.setText("Serie");
 
         jTextFieldHttpVerb.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldHttpVerb.setText(settings.getHttpVerb());
+        jTextFieldHttpVerb.setText(settings.getSerie());
 
         javax.swing.GroupLayout jDialogSettingsLayout = new javax.swing.GroupLayout(jDialogSettings.getContentPane());
         jDialogSettings.getContentPane().setLayout(jDialogSettingsLayout);
@@ -278,26 +269,20 @@ public class Home extends javax.swing.JFrame {
             jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialogSettingsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDialogSettingsLayout.createSequentialGroup()
-                        .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextFieldHttpVerb, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(27, 27, 27)
-                        .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jDialogSettingsLayout.createSequentialGroup()
-                                    .addComponent(jButtonCloseConfig)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButtonSaveConfig))
-                                .addComponent(jTextFieldApiKey, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel14)
-                    .addComponent(jTextFieldHost, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextFieldRote, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButtonCloseConfig)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSaveConfig))
+                    .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jTextFieldApiKey, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                        .addComponent(jTextFieldHttpVerb, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldUrl, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
         jDialogSettingsLayout.setVerticalGroup(
             jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,24 +292,20 @@ public class Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldHost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel15)
+                .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldRote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16))
+                .addComponent(jTextFieldHttpVerb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldHttpVerb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldApiKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jTextFieldApiKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jDialogSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSaveConfig)
                     .addComponent(jButtonCloseConfig))
-                .addContainerGap())
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -442,15 +423,6 @@ public class Home extends javax.swing.JFrame {
         jLabelUnit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelUnit.setText("bpm");
 
-        jButton1.setText("TEST");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
-        jTextFieldTest.setText("92");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -475,18 +447,14 @@ public class Home extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelMeasure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jButtonSend)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButtonStart))
-                                            .addComponent(jTextFieldTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jButtonSend)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButtonStart)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelUnit)
-                            .addComponent(jButtonStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                            .addComponent(jButtonStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(61, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -509,10 +477,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxSave))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jTextFieldTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelMeasure)
                             .addComponent(jLabelUnit))))
@@ -609,14 +574,6 @@ public class Home extends javax.swing.JFrame {
             data = dataArray[2];
 
             jLabelMeasure.setText(data);
-            
-            measure.setValue(Integer.parseInt(data))
-                .setUnit(jComboBoxUnit.getSelectedItem().toString())
-                .setSerie(Integer.parseInt(jTextFieldSerie.getText()));
-            
-            if (jCheckBoxSave.isSelected()) {
-                request.saveMeasure(settings.getHost(), settings.getRote(), measure);
-            }            
         } catch (Exception e) {
             log.error(e.getMessage());
             jLabelMeasure.setText("N/A");
@@ -642,7 +599,6 @@ public class Home extends javax.swing.JFrame {
         jButtonStop.setEnabled(xbee.isConnected());
         updateButtonsStatus();
         thStopFlag = false;
-
 
         Runnable dataLoop = new Runnable() {
             String command = jTextFieldCommand.getText();
@@ -671,6 +627,19 @@ public class Home extends javax.swing.JFrame {
                             break;
                         jLabelMeasure.setText(data);
                         log.info("Comando '" + command + "' retornou '" + data + "'");
+                        
+                        Measure measure = new Measure();
+        
+                        measure.setValue(Integer.parseInt(data))
+                                .setUnit(jComboBoxUnit.getSelectedItem().toString())
+                                .setSerie(1);
+
+                        try {
+                            log.info("Status code: " + request.saveMeasure(settings.getUrl(), measure).getStatusLine().getStatusCode());
+                        } catch (IOException ex) {
+                            log.error(ex.getMessage());
+                        }
+                        
                         Thread.sleep((frequencia-2)*1000);
                     } catch (Exception e) {
                         log.error(e.getMessage());
@@ -721,27 +690,11 @@ public class Home extends javax.swing.JFrame {
 
     private void jButtonSaveConfigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSaveConfigMouseClicked
         settings
-                .setHost(jTextFieldHost.getText())
-                .setRote(jTextFieldRote.getText())
-                .setHttpVerb(jTextFieldHttpVerb.getText())
+                .setUrl(jTextFieldUrl.getText())
                 .setApiKey(jTextFieldApiKey.getText())
                 .Save();
         jDialogSettings.setVisible(false);
     }//GEN-LAST:event_jButtonSaveConfigMouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Measure measure = new Measure();
-        
-        measure.setValue(Integer.parseInt(jTextFieldTest.getText()))
-                .setUnit("bpm")
-                .setSerie(1);
-        
-        try {
-            log.info("Status code: " + request.saveMeasure(settings.getHost(), settings.getRote(), measure).getStatusLine().getStatusCode());
-        } catch (IOException ex) {
-            log.error(ex.getMessage());
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
 
     private void updateButtonsStatus() {
         jButtonSend.setEnabled(!jCheckBoxSave.isSelected() && xbee.isConnected());
@@ -755,7 +708,6 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCloseAbout;
     private javax.swing.JButton jButtonCloseConfig;
     private javax.swing.JButton jButtonSaveConfig;
@@ -772,7 +724,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -804,10 +755,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCommand;
     private javax.swing.JTextField jTextFieldDuration;
     private javax.swing.JTextField jTextFieldFrequency;
-    private javax.swing.JTextField jTextFieldHost;
     private javax.swing.JTextField jTextFieldHttpVerb;
-    private javax.swing.JTextField jTextFieldRote;
     private javax.swing.JTextField jTextFieldSerie;
-    private javax.swing.JTextField jTextFieldTest;
+    private javax.swing.JTextField jTextFieldUrl;
     // End of variables declaration//GEN-END:variables
 }
