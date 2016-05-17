@@ -28,9 +28,9 @@ is divided into following sections:
         </condition>
     </fail>
     <target depends="test,jar,javadoc" description="Build and test whole project." name="default"/>
-    <!-- 
+    <!--
                 ======================
-                INITIALIZATION SECTION 
+                INITIALIZATION SECTION
                 ======================
             -->
     <target name="-pre-init">
@@ -266,7 +266,19 @@ is divided into following sections:
                 <property location="${build.dir}/empty" name="empty.dir"/>
                 <mkdir dir="${empty.dir}"/>
                 <mkdir dir="@{apgeneratedsrcdir}"/>
-                <javac debug="@{debug}" deprecation="${javac.deprecation}" destdir="@{destdir}" encoding="${source.encoding}" excludes="@{excludes}" fork="${javac.fork}" includeantruntime="false" includes="@{includes}" source="${javac.source}" sourcepath="@{sourcepath}" srcdir="@{srcdir}" target="${javac.target}" tempdir="${java.io.tmpdir}">
+                <javac debug="${javac.debug}"
+                       deprecation="${javac.deprecation}"
+                       destdir="@{destdir}"
+                       encoding="${source.encoding}"
+                       excludes="@{excludes}"
+                       fork="${javac.fork}"
+                       includeantruntime="false"
+                       includes="${includes}"
+                       source="${javac.source}"
+                       sourcepath="@{sourcepath}"
+                       srcdir="@{srcdir}"
+                       target="${javac.target}"
+                       tempdir="${java.io.tmpdir}">
                     <src>
                         <dirset dir="@{gensrcdir}" erroronmissingdir="false">
                             <include name="*"/>
