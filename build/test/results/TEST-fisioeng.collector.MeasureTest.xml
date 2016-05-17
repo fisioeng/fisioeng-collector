@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite errors="0" failures="0" hostname="LENA-7-026954" name="fisioeng.collector.MeasureTest" skipped="0" tests="6" time="0.084" timestamp="2016-05-17T00:21:13">
   <properties>
     <property name="netbeans.autoupdate.country" value="BR" />
     <property name="nb.wait.for.caches" value="true" />
     <property name="javac.test.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar:build/classes" />
+=======
+<testsuite errors="0" failures="0" hostname="LENA-7-026954" name="fisioeng.collector.MeasureTest" skipped="0" tests="6" time="0.086" timestamp="2016-05-17T00:51:02">
+  <properties>
+    <property name="netbeans.autoupdate.country" value="BR" />
+    <property name="nb.wait.for.caches" value="true" />
+    <property name="javac.test.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:build/classes" />
+>>>>>>> master
     <property name="file.reference.httpclient-cache-4.5.1.jar" value="libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar" />
     <property name="ant.core.lib" value="C:\Program Files\NetBeans 8.1\extide\ant\lib\ant.jar" />
     <property name="javadoc.windowtitle" value="" />
@@ -40,7 +48,11 @@
     <property name="user.name" value="lisso" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
+<<<<<<< HEAD
     <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner fisioeng.collector.MeasureTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\lisso\Documents\fisioeng-collector\build\test\results\TEST-fisioeng.collector.MeasureTest.xml crashfile=C:\Users\lisso\Documents\fisioeng-collector\build\junitvmwatcher131701071768464435.properties propsfile=C:\Users\lisso\Documents\fisioeng-collector\build\junit68816235718363388.properties" />
+=======
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner fisioeng.collector.MeasureTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\lisso\Documents\fisioeng-collector\build\test\results\TEST-fisioeng.collector.MeasureTest.xml crashfile=C:\Users\lisso\Documents\fisioeng-collector\build\junitvmwatcher8409847840941626829.properties propsfile=C:\Users\lisso\Documents\fisioeng-collector\build\junit2859085925286068326.properties" />
+>>>>>>> master
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -51,7 +63,11 @@
     <property name="user.country" value="BR" />
     <property name="manifest.file" value="manifest.mf" />
     <property name="javadoc.encoding" value="UTF-8" />
+<<<<<<< HEAD
     <property name="javac.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar" />
+=======
+    <property name="javac.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar" />
+>>>>>>> master
     <property name="libs.spring-framework400.classpath" value="C:\Program Files\NetBeans 8.1\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-aop-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-aspects-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-beans-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-build-src-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-context-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-context-support-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-core-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-expression-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-framework-bom-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-instrument-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-instrument-tomcat-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-jdbc-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-jms-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-messaging-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-orm-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-oxm-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-test-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-tx-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-web-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-webmvc-portlet-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-4\spring-websocket-4.0.1.RELEASE.jar" />
     <property name="debug-transport" value="dt_shmem" />
     <property name="netbeans.home" value="C:\Program Files\NetBeans 8.1\platform" />
@@ -73,7 +89,11 @@
     <property name="file.separator" value="\" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
+<<<<<<< HEAD
     <property name="javac.test.processorpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar:build/classes" />
+=======
+    <property name="javac.test.processorpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:build/classes" />
+>>>>>>> master
     <property name="netbeans.buildnumber" value="201510222201" />
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="build.generated.sources.dir" value="build/generated-sources" />
@@ -112,7 +132,11 @@
     <property name="test.binaryincludes" value="&lt;nothing&gt;" />
     <property name="manifest.available" value="true" />
     <property name="libs.spring-framework300.maven-pom" value="" />
+<<<<<<< HEAD
     <property name="run.test.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar:build/classes:build/test/classes" />
+=======
+    <property name="run.test.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:build/classes:build/test/classes" />
+>>>>>>> master
     <property name="ant.project.invoked-targets" value="test" />
     <property name="test.binaryexcludes" value="" />
     <property name="libs.swing-layout.javadoc" value="C:\Program Files\NetBeans 8.1\platform\docs\swing-layout-1.0.4-doc.zip" />
@@ -139,7 +163,11 @@
     <property name="javadoc.preview" value="true" />
     <property name="libs.jpa20-persistence.javadoc" value="C:\Program Files\NetBeans 8.1\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_92\jre" />
+<<<<<<< HEAD
     <property name="debug.test.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar:build/classes:build/test/classes" />
+=======
+    <property name="debug.test.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:build/classes:build/test/classes" />
+>>>>>>> master
     <property name="file.reference.httpmime-4.5.1.jar" value="libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar" />
     <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
     <property name="ant.project.default-target" value="default" />
@@ -151,7 +179,11 @@
     <property name="http.nonProxyHosts" value="localhost|127.0.0.1|LENA-7-026954" />
     <property name="libs.junit_4.javadoc" value="C:\Program Files\NetBeans 8.1\platform\docs\junit-4.12-javadoc.jar" />
     <property name="ant.file.fisioeng-collector" value="C:\Users\lisso\Documents\fisioeng-collector\build.xml" />
+<<<<<<< HEAD
     <property name="run.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar:build/classes" />
+=======
+    <property name="run.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:build/classes" />
+>>>>>>> master
     <property name="jna.boot.library.name" value="jnidispatch-410" />
     <property name="sun.awt.datatransfer.timeout" value="1000" />
     <property name="libs.jpa2-persistence.maven-pom" value="" />
@@ -163,7 +195,11 @@
     <property name="javadoc.use" value="true" />
     <property name="sun.java2d.noddraw" value="true" />
     <property name="ant.file.type.fisioeng-collector-impl" value="file" />
+<<<<<<< HEAD
     <property name="javac.processorpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar" />
+=======
+    <property name="javac.processorpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar" />
+>>>>>>> master
     <property name="libs.hamcrest.maven-pom" value="" />
     <property name="javac.compilerargs" value="" />
     <property name="ant.file" value="C:\Users\lisso\Documents\fisioeng-collector\build.xml" />
@@ -185,7 +221,11 @@
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_92\jre\bin" />
     <property name="have.sources" value="true" />
     <property name="libs.hamcrest.javadoc" value="" />
+<<<<<<< HEAD
     <property name="debug.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar:build/classes" />
+=======
+    <property name="debug.classpath" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar:libs/RXTXcomm.jar:libs/httpcomponents-client-4.5.1/lib/commons-codec-1.9.jar:libs/httpcomponents-client-4.5.1/lib/commons-logging-1.2.jar:libs/httpcomponents-client-4.5.1/lib/fluent-hc-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-cache-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/httpcore-4.4.3.jar:libs/httpcomponents-client-4.5.1/lib/httpmime-4.5.1.jar:libs/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar:libs/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar:build/classes" />
+>>>>>>> master
     <property name="javac.external.vm" value="true" />
     <property name="javadoc.private" value="false" />
     <property name="ant.file.type.fisioeng-collector" value="file" />
@@ -195,6 +235,10 @@
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/fisioeng-collector.jar" />
     <property name="libs.spring-framework400.maven-pom" value="" />
+<<<<<<< HEAD
+=======
+    <property name="netbeans.automatic.build" value="true" />
+>>>>>>> master
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="fisioeng-collector" />
     <property name="netbeans.hash.code" value="unique=NB_EXTIDE_JAVA03c3cc332-d4c5-42d9-bfed-c1f10a2cf83b_d278a152-cf1f-45fb-9462-a4fb422f408d" />
@@ -213,6 +257,10 @@
     <property name="libs.spring-framework300.javadoc" value="" />
     <property name="libs.absolutelayout.javadoc" value="" />
     <property name="java.specification.name" value="Java Platform API Specification" />
+<<<<<<< HEAD
+=======
+    <property name="do.archive+main.class.available" value="true" />
+>>>>>>> master
     <property name="file.reference.httpclient-win-4.5.1.jar" value="libs/httpcomponents-client-4.5.1/lib/httpclient-win-4.5.1.jar" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
     <property name="libs.javac-api.classpath" value="C:\Program Files\NetBeans 8.1\java\modules\ext\nb-javac-api.jar" />
@@ -274,7 +322,11 @@
     <property name="libs.absolutelayout.classpath" value="C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar" />
     <property name="excludes" value="" />
     <property name="libs.jpa2-persistence.javadoc" value="C:\Program Files\NetBeans 8.1\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+<<<<<<< HEAD
     <property name="java.class.path" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar;C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\RXTXcomm.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\commons-codec-1.9.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\commons-logging-1.2.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\fluent-hc-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpclient-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpclient-cache-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpclient-win-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpcore-4.4.3.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpmime-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\jna-4.1.0.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\jna-platform-4.1.0.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\AbsoluteLayout.jar;C:\Users\lisso\Documents\fisioeng-collector\build\classes;C:\Users\lisso\Documents\fisioeng-collector\build\test\classes;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant-junit4.jar" />
+=======
+    <property name="java.class.path" value="C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar;C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\RXTXcomm.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\commons-codec-1.9.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\commons-logging-1.2.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\fluent-hc-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpclient-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpclient-cache-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpclient-win-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpcore-4.4.3.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\httpmime-4.5.1.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\jna-4.1.0.jar;C:\Users\lisso\Documents\fisioeng-collector\libs\httpcomponents-client-4.5.1\lib\jna-platform-4.1.0.jar;C:\Users\lisso\Documents\fisioeng-collector\build\classes;C:\Users\lisso\Documents\fisioeng-collector\build\test\classes;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 8.1\extide\ant\lib\ant-junit4.jar" />
+>>>>>>> master
     <property name="apple.laf.useScreenMenuBar" value="true" />
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
@@ -282,14 +334,23 @@
     <property name="os.version" value="10.0" />
     <property name="application.args" value="" />
     <property name="sun.awt.enableExtraMouseButtons" value="true" />
+<<<<<<< HEAD
+=======
+    <property name="main.class.available" value="true" />
+>>>>>>> master
     <property name="sun.desktop" value="windows" />
     <property name="libs.hibernate4-persistence.src" value="" />
     <property name="libs.hibernate4-support.maven-pom" value="" />
     <property name="nb.internal.action.name" value="test" />
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 8.1\ide\modules\ext\jaxb\api\jaxb-api.jar" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 8.1\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
+<<<<<<< HEAD
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.1\java\docs\beansbinding-1.2.1-doc.zip" />
+=======
+    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.1\java\docs\beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+>>>>>>> master
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 8.1\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 8.1\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
@@ -303,7 +364,11 @@
     <property name="libs.PostgreSQLDriver.classpath" value="C:\Program Files\NetBeans 8.1\ide\modules\ext\postgresql-9.2-1002.jdbc4.jar" />
     <property name="libs.hibernate4-persistencemodelgen.classpath" value="C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\hibernate-jpamodelgen-4.3.1.Final.jar" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
+<<<<<<< HEAD
     <property name="main.class" value="" />
+=======
+    <property name="main.class" value="fisioeng.collector.FisioengCollector" />
+>>>>>>> master
     <property name="libs.CopyLibs.src" value="" />
     <property name="build.dir" value="build" />
     <property name="file.reference.httpclient-4.5.1.jar" value="libs/httpcomponents-client-4.5.1/lib/httpclient-4.5.1.jar" />
@@ -318,7 +383,11 @@
   <testcase classname="fisioeng.collector.MeasureTest" name="testSetValueReturnMeasureInstance" time="0.002" />
   <testcase classname="fisioeng.collector.MeasureTest" name="testGetUnitReturnWhatWasProvided" time="0.0" />
   <testcase classname="fisioeng.collector.MeasureTest" name="testSetUnitReturnMeasureInstance" time="0.0" />
+<<<<<<< HEAD
   <testcase classname="fisioeng.collector.MeasureTest" name="testGetValueReturnWhatWasProvided" time="0.001" />
+=======
+  <testcase classname="fisioeng.collector.MeasureTest" name="testGetValueReturnWhatWasProvided" time="0.0" />
+>>>>>>> master
   <testcase classname="fisioeng.collector.MeasureTest" name="testGetValueNull" time="0.0" />
   <testcase classname="fisioeng.collector.MeasureTest" name="testGetUnitNull" time="0.0" />
   <system-out><![CDATA[]]></system-out>

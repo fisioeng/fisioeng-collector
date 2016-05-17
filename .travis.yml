@@ -1,4 +1,7 @@
 language: java
+<<<<<<< HEAD
   
 jdk:
   - oraclejdk8
+=======
+>>>>>>> master
